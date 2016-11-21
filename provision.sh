@@ -47,13 +47,19 @@ EOF
 }
 
 install_quicklisp() {
-sudo -u ${user} zsh <<EOF
-  curl -O https://beta.quicklisp.org/quicklisp.lisp
-  sbcl --load install-quicklisp.lisp
-EOF
+if [[ ! -d /home/${user}/quicklisp ]]
+then
+    echo "install quicklisp!"
+# sudo -u ${user} zsh <<EOF
+#   curl -O https://beta.quicklisp.org/quicklisp.lisp
+#   sbcl --load install-quicklisp.lisp
+# EOF
+fi
 }
 
 install_stumpwm() {
+if [[ ! -f /usr/local/bin/stumpwm ]]
+then
 sudo -iu ${user} zsh <<EOF
   git clone https://github.com/stumpwm/stumpwm.git
   cd stumpwm
@@ -65,6 +71,7 @@ EOF
   make install
   cd
   rm -rf /home/${user}/stumpwm
+fi
 }
 
 install_packages() {
@@ -74,6 +81,9 @@ install_packages() {
     typeset -U utilities
     utilities=("pass" "the_silver_searcher" "openconnect" "unzip" "emacs-nox"
                "git" "jdk8-openjdk" "rclone" "sbcl")
+
+    typeset -U bluetooth
+    utilities=("bluez" "bluez-utils")
 
     typeset -U xorg
     xorg=("xf86-input-synaptics" "xorg-server" "xorg-server-utils" "xorg-apps"
