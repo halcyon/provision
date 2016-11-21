@@ -49,11 +49,10 @@ EOF
 install_quicklisp() {
 if [[ ! -d /home/${user}/quicklisp ]]
 then
-    echo "install quicklisp!"
-# sudo -u ${user} zsh <<EOF
-#   curl -O https://beta.quicklisp.org/quicklisp.lisp
-#   sbcl --load install-quicklisp.lisp
-# EOF
+sudo -u ${user} zsh <<EOF
+  curl -O https://beta.quicklisp.org/quicklisp.lisp
+  sbcl --load install-quicklisp.lisp
+EOF
 fi
 }
 
