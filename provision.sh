@@ -13,6 +13,9 @@ install_packages() {
     typeset -U bluetooth
     utilities=("bluez" "bluez-utils")
 
+    typeset -U pulseaudio
+    shell=("pulseaudio" "pulseaudio-alsa" "pavucontrol")
+
     typeset -U xorg
     xorg=("xf86-input-synaptics" "xorg-server" "xorg-server-utils" "xorg-apps"
           "xorg-xinit" "xclip" "konsole" "ttf-symbola" "ttf-ubuntu-font-family"
@@ -24,6 +27,8 @@ install_packages() {
 
     aura --noconfirm --needed -S ${shell}
     aura --noconfirm --needed -S ${utilities}
+    aura --noconfirm --needed -S ${bluetooth}
+    aura --noconfirm --needed -S ${pulseaudio}
     aura --noconfirm --needed -S ${xorg}
     aura --noconfirm --needed -A ${aur}
 }
