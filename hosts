@@ -1,0 +1,10 @@
+#
+# /etc/hosts: static lookup table for host names
+#
+
+#<ip-address>	<hostname.domain.org>	<hostname>
+127.0.0.1	localhost.localdomain	localhost
+216.52.38.100   vpn.rentpath.com
+::1		localhost.localdomain	localhost
+
+# End of file
