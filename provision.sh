@@ -8,7 +8,7 @@ install_packages() {
 
     typeset -U utilities
     utilities=("pass" "the_silver_searcher" "openconnect" "unzip" "emacs-nox"
-               "git" "jdk8-openjdk" "rclone" "sbcl")
+               "git" "jdk8-openjdk" "rtorrent" "rclone" "sbcl")
 
     typeset -U bluetooth
     utilities=("bluez" "bluez-utils")
