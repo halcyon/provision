@@ -19,8 +19,10 @@ install_packages() {
     typeset -U xorg
     xorg=("xf86-input-synaptics" "xorg-server" "xorg-server-utils" "xorg-apps"
           "xorg-xinit" "xclip" "konsole" "ttf-symbola" "ttf-ubuntu-font-family"
-          "noto-fonts" "flashplugin" "firefox" "calibre" "zathura"
-          "zathura-pdf-mupdf" "zathura-djvu")
+          "noto-fonts" "flashplugin" "firefox")
+
+    typeset -U books
+    books=("calibre" "zathura" "zathura-pdf-mupdf" "zathura-djvu")
 
     typeset -U aur
     aur=("aur-git" "powerpill" "leiningen-standalone" "tmate" "totp-cli" "dropbox"
@@ -31,6 +33,7 @@ install_packages() {
     aura --noconfirm --needed -S ${bluetooth}
     aura --noconfirm --needed -S ${pulseaudio}
     aura --noconfirm --needed -S ${xorg}
+    aura --noconfirm --needed -S ${books}
     aura --noconfirm --needed -A ${aur}
 }
 
