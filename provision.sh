@@ -24,6 +24,9 @@ install_packages() {
     typeset -U books
     books=("calibre" "zathura" "zathura-pdf-mupdf" "zathura-djvu")
 
+    typset -U video
+    video=("vlc" "libva-intel-driver" "youtube-dl" "ffmpeg" "rtmpdump" "atomicparsley")
+
     typeset -U aur
     aur=("aur-git" "powerpill" "leiningen-standalone" "tmate" "totp-cli" "dropbox"
          "dropbox-cli" "slack-desktop" "kiwix-bin" "ttf-fira-code")
@@ -34,6 +37,7 @@ install_packages() {
     aura --noconfirm --needed -S ${pulseaudio}
     aura --noconfirm --needed -S ${xorg}
     aura --noconfirm --needed -S ${books}
+    aura --noconfirm --needed -S ${video}
     aura --noconfirm --needed -A ${aur}
 }
 
