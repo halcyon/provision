@@ -8,7 +8,8 @@ install_packages() {
 
     typeset -U utilities
     utilities=("bind-tools" "pass" "the_silver_searcher" "openconnect" "unzip"
-               "emacs-nox" "git" "jdk8-openjdk" "rtorrent" "rclone" "sbcl")
+               "httrack" "emacs-nox" "git" "jdk8-openjdk" "rtorrent" "rclone"
+               "sbcl")
 
     typeset -U bluetooth
     utilities=("bluez" "bluez-utils")
@@ -28,8 +29,8 @@ install_packages() {
     video=("vlc" "libva-intel-driver" "youtube-dl" "ffmpeg" "rtmpdump" "atomicparsley")
 
     typeset -U aur
-    aur=("aur-git" "powerpill" "leiningen-standalone" "tmate" "totp-cli" "dropbox"
-         "dropbox-cli" "slack-desktop" "kiwix-bin" "ttf-fira-code")
+    aur=("aur-git" "powerpill" "leiningen-standalone" "tmate" "totp-cli" "caddy"
+         "dropbox" "dropbox-cli" "slack-desktop" "kiwix-bin" "ttf-fira-code")
 
     aura --noconfirm --needed -S ${shell}
     aura --noconfirm --needed -S ${utilities}
