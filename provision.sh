@@ -7,8 +7,8 @@ install_packages() {
     shell=("autojump" "tmux" "stow")
 
     typeset -U utilities
-    utilities=("pass" "the_silver_searcher" "openconnect" "unzip" "emacs-nox"
-               "git" "jdk8-openjdk" "rtorrent" "rclone" "sbcl")
+    utilities=("bind-tools" "pass" "the_silver_searcher" "openconnect" "unzip"
+               "emacs-nox" "git" "jdk8-openjdk" "rtorrent" "rclone" "sbcl")
 
     typeset -U bluetooth
     utilities=("bluez" "bluez-utils")
