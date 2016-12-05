@@ -28,9 +28,13 @@ install_packages() {
     typset -U video
     video=("vlc" "libva-intel-driver" "youtube-dl" "ffmpeg" "rtmpdump" "atomicparsley")
 
+    typset -U printer
+    printer=("gtk3-print-backends")
+
     typeset -U aur
     aur=("aur-git" "powerpill" "leiningen-standalone" "tmate" "totp-cli" "caddy"
-         "dropbox" "dropbox-cli" "slack-desktop" "kiwix-bin" "ttf-fira-code")
+         "dropbox" "dropbox-cli" "slack-desktop" "kiwix-bin" "ttf-fira-code"
+         "brother-brgenml1" "brscan4")
 
     aura --noconfirm --needed -S ${shell}
     aura --noconfirm --needed -S ${utilities}
@@ -39,6 +43,7 @@ install_packages() {
     aura --noconfirm --needed -S ${xorg}
     aura --noconfirm --needed -S ${books}
     aura --noconfirm --needed -S ${video}
+    aura --noconfirm --needed -S ${printer}
     aura --noconfirm --needed -A ${aur}
 }
 
@@ -129,8 +134,14 @@ setup_dropbox() {
   fi
 }
 
+setup_printer() {
+  lpadmin -p DCP-L2540DW -E -v ipp://10.0.1.11/ipp/port1 -m brother-BrGenML1-cups-en.ppd
+}
+
 install_packages
 clone_repos
 install_quicklisp
 install_stumpwm
 setup_kiwix
+setup_dropbox
+setup_printer
