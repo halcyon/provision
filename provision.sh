@@ -29,7 +29,7 @@ install_packages() {
     video=("vlc" "libva-intel-driver" "youtube-dl" "ffmpeg" "rtmpdump" "atomicparsley")
 
     typset -U printer
-    printer=("gtk3-print-backends")
+    printer=("gtk3-print-backends" "xsane")
 
     typeset -U aur
     aur=("aur-git" "powerpill" "leiningen-standalone" "tmate" "totp-cli" "caddy"
@@ -136,6 +136,7 @@ setup_dropbox() {
 
 setup_printer() {
   lpadmin -p DCP-L2540DW -E -v ipp://10.0.1.11/ipp/port1 -m brother-BrGenML1-cups-en.ppd
+  brsaneconfig4 -a name="DCP-L2540DW" model="DCP-L2540DW" ip=10.0.1.11
 }
 
 install_packages
