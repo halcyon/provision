@@ -34,7 +34,7 @@ install_packages() {
     typeset -U aur
     aur=("aur-git" "powerpill" "leiningen-standalone" "tmate" "totp-cli" "caddy"
          "dropbox" "dropbox-cli" "slack-desktop" "kiwix-bin" "ttf-fira-code"
-         "brother-brgenml1" "brscan4")
+         "ttf-bookerly" "brother-brgenml1" "brscan4")
 
     aura --noconfirm --needed -S ${shell}
     aura --noconfirm --needed -S ${utilities}
@@ -52,13 +52,18 @@ sudo -iu ${user} zsh <<EOF
   if [[ ! -d ~/dotfiles ]]
   then
     git clone git@github.com:halcyon/dotfiles.git
-    cd dotfiles; ./stow.sh; cd ..
+    cd dotfiles; ./stow.sh;
+    cd ~/.local/share
+    ln -s ../../dotfiles/local/.local/share/konsole .
+    ln -s ../../dotfiles/local/.local/share/applications .
+    cd
   fi
 
   if [[ ! -d ~/dotfiles-private ]]
   then
     git clone git@bitbucket.org:halcyonblue/dotfiles-private.git
-    cd dotfiles-private; ./stow.sh; cd ..
+    cd dotfiles-private; ./stow.sh
+    cd
   fi
 
 
@@ -72,21 +77,21 @@ sudo -iu ${user} zsh <<EOF
   then
     cd projects
     git clone git@gitlab.com:halcyonblue/recipes.git
-    cd ..
+    cd
   fi
 
   if [[ ! -d ~/projects/arch-vm ]]
   then
     cd projects
     git clone git@github.com:halcyon/arch-vm.git
-    cd ..
+    cd
   fi
 
   if [[ ! -d ~/projects/org ]]
   then
     cd projects
     git clone git@github.com:halcyon/org.git
-    cd ..
+    cd
   fi
 EOF
 }
