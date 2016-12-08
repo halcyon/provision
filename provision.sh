@@ -18,9 +18,9 @@ install_packages() {
     shell=("pulseaudio" "pulseaudio-alsa" "pavucontrol")
 
     typeset -U xorg
-    xorg=("xf86-input-synaptics" "xorg-server" "xorg-server-utils" "xorg-apps"
-          "xorg-xinit" "xclip" "konsole" "ttf-symbola" "ttf-ubuntu-font-family"
-          "noto-fonts" "flashplugin" "firefox")
+    xorg=("xorg-server" "xorg-server-utils" "xorg-apps" "xorg-xinit" "xclip"
+          "konsole" "ttf-symbola" "ttf-ubuntu-font-family" "noto-fonts"
+          "flashplugin" "firefox")
 
     typeset -U books
     books=("calibre" "zathura" "zathura-pdf-mupdf" "zathura-djvu")
@@ -32,9 +32,9 @@ install_packages() {
     printer=("gtk3-print-backends" "xsane")
 
     typeset -U aur
-    aur=("aur-git" "powerpill" "leiningen-standalone" "tmate" "totp-cli" "caddy"
-         "dropbox" "dropbox-cli" "slack-desktop" "kiwix-bin" "ttf-fira-code"
-         "ttf-bookerly" "brother-brgenml1" "brscan4")
+    aur=("aur-git" "powerpill" "xf86-input-mtrack-git" "leiningen-standalone"
+         "tmate" "totp-cli" "caddy" "dropbox" "dropbox-cli" "slack-desktop"
+         "kiwix-bin" "ttf-fira-code" "ttf-bookerly" "brother-brgenml1" "brscan4")
 
     aura --noconfirm --needed -S ${shell}
     aura --noconfirm --needed -S ${utilities}
