@@ -31,10 +31,14 @@ install_packages() {
     typset -U printer
     printer=("gtk3-print-backends" "xsane")
 
+    typeset -U power
+    power=("cpupower" "tlp" "powertop")
+
     typeset -U aur
-    aur=("aur-git" "powerpill" "xf86-input-mtrack-git" "leiningen-standalone"
+    aur=("aur-git" "powerpill" "xf86-input-synaptics" "leiningen-standalone"
          "tmate" "totp-cli" "caddy" "dropbox" "dropbox-cli" "slack-desktop"
-         "kiwix-bin" "ttf-fira-code" "ttf-bookerly" "brother-brgenml1" "brscan4")
+         "kiwix-bin" "ttf-fira-code" "ttf-bookerly" "brother-brgenml1" "brscan4"
+         "mbpfan-git")
 
     aura --noconfirm --needed -S ${shell}
     aura --noconfirm --needed -S ${utilities}
@@ -44,6 +48,7 @@ install_packages() {
     aura --noconfirm --needed -S ${books}
     aura --noconfirm --needed -S ${video}
     aura --noconfirm --needed -S ${printer}
+    aura --noconfirm --needed -S ${power}
     aura --noconfirm --needed -A ${aur}
 }
 
