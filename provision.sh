@@ -23,7 +23,7 @@ install_packages() {
           "flashplugin" "firefox")
 
     typeset -U books
-    books=("calibre" "zathura" "zathura-pdf-mupdf" "zathura-djvu")
+    books=("calibre" "sdcv" "zathura" "zathura-pdf-mupdf" "zathura-djvu")
 
     typset -U video
     video=("vlc" "libva-intel-driver" "youtube-dl" "ffmpeg" "rtmpdump" "atomicparsley")
@@ -37,8 +37,7 @@ install_packages() {
     typeset -U aur
     aur=("aur-git" "powerpill" "xf86-input-synaptics" "leiningen-standalone"
          "tmate" "totp-cli" "caddy" "dropbox" "dropbox-cli" "slack-desktop"
-         "kiwix-bin" "ttf-fira-code" "ttf-bookerly" "brother-brgenml1" "brscan4"
-         "mbpfan-git")
+         "ttf-fira-code" "ttf-bookerly" "brother-brgenml1" "brscan4" "mbpfan-git")
 
     aura --noconfirm --needed -S ${shell}
     aura --noconfirm --needed -S ${utilities}
@@ -128,15 +127,6 @@ EOF
 fi
 }
 
-setup_kiwix() {
-  if [[ ! -f /etc/systemd/system/multi-user.target.wants/kiwix-serve.service ]]
-  then
-    cp ${PWD}/kiwix-serve.service /etc/systemd/system/kiwix-serve.service
-    chown -R root:root /etc/systemd/system/kiwix-serve.service
-    systemctl enable kiwix-serve.service
-  fi
-}
-
 setup_dropbox() {
   if [[ ! -f /etc/systemd/system/multi-user.target.wants/dropbox@smcleod.service ]]
   then
@@ -149,10 +139,14 @@ setup_printer() {
   brsaneconfig4 -a name="DCP-L2540DW" model="DCP-L2540DW" ip=10.0.1.11
 }
 
+setup_time() {
+  sudo timedatectl set-ntp true
+}
+
 install_packages
 clone_repos
 install_quicklisp
 install_stumpwm
-setup_kiwix
 setup_dropbox
 setup_printer
+setup_time
