@@ -20,7 +20,7 @@ install_packages() {
     typeset -U xorg
     xorg=("xorg-server" "xorg-server-utils" "xorg-apps" "xorg-xinit" "xclip"
           "konsole" "ttf-symbola" "ttf-ubuntu-font-family" "noto-fonts"
-          "flashplugin" "chromium")
+          "chromium")
 
     typeset -U books
     books=("calibre" "sdcv" "zathura" "zathura-pdf-mupdf" "zathura-djvu")
