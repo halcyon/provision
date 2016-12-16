@@ -38,7 +38,7 @@ install_packages() {
     aur=("aur-git" "powerpill" "xf86-input-synaptics" "leiningen-standalone"
          "tmate" "totp-cli" "caddy" "dropbox" "dropbox-cli" "slack-desktop"
          "ttf-fira-code" "ttf-bookerly" "brother-brgenml1" "brscan4" "mbpfan-git"
-         "vivaldi" "vivaldi-ffmpeg-codecs" "vivaldi-widevine")
+         "vivaldi" "vivaldi-ffmpeg-codecs" "vivaldi-widevine" "paperkey")
 
     aura --noconfirm --needed -S ${shell}
     aura --noconfirm --needed -S ${utilities}
