@@ -7,9 +7,9 @@ install_packages() {
     shell=("autojump" "tmux" "stow")
 
     typeset -U utilities
-    utilities=("bind-tools" "pass" "the_silver_searcher" "openconnect" "unzip"
-               "httrack" "emacs-nox" "git" "jdk8-openjdk" "rtorrent" "rclone"
-               "sbcl" "rust" "cargo" "rustfmt" "rust-racer" "rust-docs")
+    utilities=("bind-tools" "pass" "unzip" "httrack" "git" "jdk8-openjdk"
+               "rtorrent" "rclone" "rust" "cargo" "rustfmt" "rust-racer"
+               "rust-docs")
 
     typeset -U bluetooth
     utilities=("bluez" "bluez-utils")
@@ -21,6 +21,12 @@ install_packages() {
     xorg=("xorg-server" "xorg-server-utils" "xorg-apps" "xorg-xinit" "xclip"
           "konsole" "ttf-symbola" "ttf-ubuntu-font-family" "noto-fonts"
           "chromium")
+
+    typeset -U stump
+    stump=("sbcl" "xdotool" "openconnect" "the_silver_searcher")
+
+    typeset -U emacs
+    emacs=("emacs-nox" "xvkbd" "xbindkeys")
 
     typeset -U books
     books=("calibre" "sdcv" "zathura" "zathura-pdf-mupdf" "zathura-djvu")
@@ -46,6 +52,8 @@ install_packages() {
     aura --noconfirm --needed -S ${bluetooth}
     aura --noconfirm --needed -S ${pulseaudio}
     aura --noconfirm --needed -S ${xorg}
+    aura --noconfirm --needed -S ${stump}
+    aura --noconfirm --needed -S ${emacs}
     aura --noconfirm --needed -S ${books}
     aura --noconfirm --needed -S ${video}
     aura --noconfirm --needed -S ${printer}
